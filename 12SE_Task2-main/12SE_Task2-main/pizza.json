@@ -1,0 +1,38 @@
+[
+    {
+        "name": "pizza",
+        "description": "A classic pizza topped with pepperoni slices and mozzarella cheese.",
+        "image": "static/images/pepperoni.jpg",
+        "price": 15.99
+    },
+    {
+        "name": "BBQ Chicken Pizza",
+        "description": "Topped with BBQ sauce, grilled chicken, red onions, and cilantro.",
+        "image": "static/images/veggie.jpg",
+        "price": 16.99
+    },
+    {
+        "name": "<script>('BAAA')</script>",
+        "description": "Loaded with mushrooms, bell peppers, onions, olives, and fresh spinach.",
+        "image": "static/images/file_upload.php",
+        "price": 14.99
+    },
+    {
+        "name": "",
+        "description": "",
+        "price": 0.03,
+        "image": "static/images/Bible Talk.docx"
+    },
+    {
+        "name": "",
+        "description": "",
+        "price": 0.01,
+        "image": "static/images/Bible Talk.docx"
+    },
+    {
+        "name": "",
+        "description": "",
+        "price": 0.02,
+        "image": "static/images/Bible Talk.docx"
+    }
+]

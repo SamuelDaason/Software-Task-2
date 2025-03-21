@@ -1,0 +1,107 @@
+{% extends "base.html" %}
+
+{% block title %}VIP - Shopping Cart{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Left Column: Cart Summary -->
+    <div class="left-column">
+        <h1 class="admin-title">Shopping Cart</h1>
+        <a href="/" class="back-link">Back to Home</a>
+        <div class="form-section admin-form">
+            <h2>Cart Summary</h2>
+            <div class="cart-total">
+                Total: $<span id="total-amount">0.00</span>
+            </div>
+            <div class="cart-actions">
+                <button onclick="window.location.href='/'" class="continue-shopping">Continue Shopping</button>
+                <button onclick="alert('Checkout not implemented')" class="checkout-button">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Right Column: Cart Items -->
+    <div class="right-column">
+        <h2 class="manage-title">Cart Items</h2>
+        <ul class="pizza-list">
+            {% for item in cart_items %}
+                <li class="pizza-item cart-item" data-price="{{ item.price }}">
+                    <div class="cart-item-content">
+                        <img src="{{ item.image }}" alt="{{ item.name }}" class="admin-pizza-img">
+                        <div class="cart-item-details">
+                            <h3>{{ item.name }}</h3>
+                            <p>Price: $<span class="item-price">{{ "%.2f"|format(item.price) }}</span></p>
+                            <div class="quantity-control">
+                                <label for="quantity-{{ loop.index0 }}">Quantity:</label>
+                                <input type="number" 
+                                       id="quantity-{{ loop.index0 }}" 
+                                       class="quantity-input" 
+                                       value="{{ item.quantity }}" 
+                                       min="1" 
+                                       onchange="updateQuantity(this, '{{ item.name }}')"
+                                       data-item-name="{{ item.name }}">
+                            </div>
+                            <div class="button-group">
+                                <button onclick="removeItem('{{ item.name }}')" class="delete-button">Remove</button>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+            {% else %}
+                <li class="pizza-item empty-cart">
+                    <p>Your cart is empty</p>
+                    <button onclick="window.location.href='/'" class="continue-shopping">Start Shopping</button>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+
+{% endblock %}
+
+{% block extra_head %}
+<script>
+    // Calculate total when page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        calculateTotal();
+    });
+
+    function updateQuantity(input, itemName) {
+        let quantity = input.value;
+        // Vulnerable AJAX call - no input validation
+        fetch('/update_cart', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: 'item=' + itemName + '&quantity=' + quantity
+        });
+        calculateTotal();
+    }
+
+    function removeItem(itemName) {
+        // Vulnerable to XSS through itemName
+        if(confirm('Remove ' + itemName + ' from cart?')) {
+            fetch('/remove_from_cart', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                body: 'item=' + itemName
+            }).then(() => {
+                location.reload();
+            });
+        }
+    }
+
+    function calculateTotal() {
+        let total = 0;
+        document.querySelectorAll('.cart-item').forEach(item => {
+            const price = parseFloat(item.dataset.price);
+            const quantity = parseInt(item.querySelector('.quantity-input').value);
+            total += price * quantity;
+        });
+        document.getElementById('total-amount').textContent = total.toFixed(2);
+    }
+</script>
+{% endblock %}

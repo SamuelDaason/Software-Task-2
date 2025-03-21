@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block title %}VIP - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Left Column: Add New Pizza -->
+    <div class="left-column">
+        <h1 class="admin-title">Admin Panel</h1>
+        <a href="/" class="back-link">Back to Home</a>
+        <div class="form-section admin-form">
+            <form method="POST" enctype="multipart/form-data">
+                <h2>Add New Pizza</h2>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" placeholder="Enter pizza name"><br>
+                
+                <label for="description">Description:</label>
+                <textarea id="description" name="description" placeholder="Enter pizza description"></textarea><br>
+                
+                <label for="price">Price ($):</label>
+                <input type="number" id="price" name="price" step="0.01" min="0" placeholder="Enter price"><br>
+                
+                <label for="image">Upload Image:</label>
+                <input type="file" id="image" name="image"><br>
+                
+                <button type="submit">Add Pizza</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Right Column: Manage Existing Pizzas -->
+    <div class="right-column">
+        <h2 class="manage-title">Manage Existing Pizzas</h2>
+        <ul class="pizza-list">
+            {% for pizza in pizzas %}
+                <li class="pizza-item">
+                    <form method="POST" enctype="multipart/form-data" class="pizza-form">
+                        <label for="name-{{ loop.index0 }}">Name:</label>
+                        <input type="text" id="name-{{ loop.index0 }}" name="name" value="{{ pizza.name }}"><br>
+                        
+                        <label for="description-{{ loop.index0 }}">Description:</label>
+                        <textarea id="description-{{ loop.index0 }}" name="description">{{ pizza.description }}</textarea><br>
+                        
+                        <label for="price-{{ loop.index0 }}">Price ($):</label>
+                        <input type="number" id="price-{{ loop.index0 }}" name="price" step="0.01" min="0" value="{{ "%.2f"|format(pizza.price) }}"><br>
+                        
+                        <label for="image-{{ loop.index0 }}">Image:</label>
+                        <input type="file" id="image-{{ loop.index0 }}" name="image"><br>
+                        
+                        {% if pizza.image %}
+                            <img src="{{ pizza.image }}" alt="Pizza Image" class="admin-pizza-img">
+                        {% endif %}
+                        
+                        <div class="button-group">
+                            <button type="submit" name="update" value="{{ loop.index0 }}">Update</button>
+                            <button type="submit" name="delete" value="{{ loop.index0 }}">Delete</button>
+                        </div>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</div>
+{% endblock %}

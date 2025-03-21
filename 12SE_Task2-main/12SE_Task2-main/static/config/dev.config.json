@@ -1,0 +1,23 @@
+{
+    "environment": "development",
+    "debug": true,
+    "database": {
+        "host": "localhost",
+        "name": "users.db"
+    },
+    "test_accounts": {
+        "admin": {
+            "username": "admin",
+            "password": "admin123",
+            "role": "administrator"
+        },
+        "demo": {
+            "username": "demo",
+            "password": "demo123",
+            "role": "viewer"
+        }
+    },
+    "api_keys": {
+        "test": "123456789"
+    }
+}

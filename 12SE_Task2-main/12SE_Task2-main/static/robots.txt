@@ -1,0 +1,6 @@
+User-agent: *
+Disallow: /static/config/
+Disallow: /static/dev/
+Disallow: /backup/
+
+# Developer note: Remember to remove dev.config.json before production

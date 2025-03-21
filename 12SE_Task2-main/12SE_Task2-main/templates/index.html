@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+
+{% block title %}VIP - Home{% endblock %}
+
+{% block content %}
+<div class="container">
+    <!-- Left Column: Login & Registration -->
+    <div class="left-column">
+        {% if session.get('user') %}
+            <p>Welcome, {{ session.get('user') }}!</p>
+            
+            <div class="user-info">
+                <p class="welcome-text">Great to see you back! We hope you enjoyed your last order.</p>
+                
+                <div class="last-order">
+                    <h3>Your Last Order</h3>
+                    <p>Ordered on February 27, 2025:</p>
+                    <ul>
+                        <li>1x Margherita Pizza</li>
+                        <li>1x Garlic Bread</li>
+                    </ul>
+                    <p class="order-status">Delivered at 7:45 PM</p>
+                </div>
+
+                <div class="member-specials">
+                    <h3>Member-Only Specials</h3>
+                    <ul>
+                        <li>🔥 Buy any large pizza, get garlic bread FREE!</li>
+                        <li>⭐ Double loyalty points this weekend</li>
+                        <li>🎉 25% off on your birthday month</li>
+                    </ul>
+                    <p class="promo-text">Use code: VIPFEB25 at checkout</p>
+                </div>
+            </div>
+
+            <a href="{{ url_for('cart') }}" class="cart-button">VIEW CART</a>
+            <form action="/logout" method="GET">
+                <button type="submit" class="logout-button">LOGOUT</button>
+            </form>
+            {% if session.get('user') == 'admin' %}
+                <a href="/admin" class="manage-pizzas-button">MANAGE PIZZAS</a>
+            {% endif %}
+        {% else %}
+            <div class="form-section">
+                <h2>Login</h2>
+                <form action="/login" method="POST">
+                    <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">  <!-- Hidden CSRF token -->
+                    <p>Username: <input type="text" name="username"></p>
+                    <p>Password: <input type="password" name="password"></p>
+                    <p><button type="submit" class="login-button">Login</button></p>
+                    <p><a href="/forgot-password">Forgot Password?</a></p>
+                </form>                    
+                <p>Don't have an account? <a href="{{ url_for('register_page') }}">Register here</a></p>
+            </div>
+        {% endif %}
+    </div>
+
+    <!-- Right Column: Pizza List -->
+    <div class="right-column">
+        <h2>VIP Classic Collection</h2>
+        <div class="pizza-grid">
+            {% for pizza in pizzas %}
+                <div class="pizza-card">
+                    <h3>{{ pizza.name }}</h3>
+                    <p>{{ pizza.description }}</p>
+                    <p class="price">Price: ${{ "%.2f"|format(pizza.price) }}</p>
+                    <img src="{{ pizza.image }}" alt="Pizza Image">
+                    <form method="POST" action="/add_to_cart">
+                        <button type="submit" name="pizza_name" value="{{ pizza.name }}">Add</button>
+                    </form>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

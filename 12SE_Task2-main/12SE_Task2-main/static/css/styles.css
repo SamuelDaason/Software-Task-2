@@ -1,0 +1,812 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    background-color: #fff5eb;
+    position: relative;
+}
+
+/* Header Styles */
+.site-header {
+    background-color: #2c3e50;
+    color: white;
+    padding: 0.5rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.header-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 40px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo h1 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #ecf0f1;
+}
+
+.tagline {
+    margin: 0;
+    font-size: 0.8em;
+    color: #bdc3c7;
+}
+
+.main-nav {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
+    border-radius: 4px;
+    transition: background-color 0.3s;
+    font-size: 0.9em;
+}
+
+.nav-link:hover {
+    background-color: #34495e;
+}
+
+/* Main Content Styles */
+.main-content {
+    flex: 1;
+    width: 100%;
+    max-width: 1200px;
+    margin: 60px auto 0;
+    padding: 20px;
+    min-height: calc(100vh - 120px); /* Account for header and footer */
+    position: relative;
+    z-index: 1;
+}
+
+/* Footer Styles */
+.site-footer {
+    background-color: #2c3e50;
+    color: white;
+    padding: 60px 0; /* Increased padding for height */
+    width: 100%;
+    position: relative;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.footer-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 20px;
+}
+
+.footer-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    font-size: 0.8em;
+    margin-bottom: 30px;
+}
+
+.footer-section h3 {
+    color: #ecf0f1;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    display: block;
+}
+
+.footer-section p {
+    color: #bdc3c7;
+    margin: 5px 0;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.social-link {
+    color: #ecf0f1;
+    text-decoration: none;
+    transition: color 0.3s;
+    font-size: 0.8em;
+}
+
+.social-link:hover {
+    color: #3498db;
+}
+
+.disclaimer {
+    font-style: italic;
+    font-size: 0.7em;
+    color: #95a5a6;
+    text-align: right;
+}
+
+.footer-bottom {
+    max-width: 1200px;
+    margin: 10px auto 0;
+    padding: 10px 20px 0;
+    border-top: 1px solid #34495e;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #bdc3c7;
+    font-size: 0.7em;
+    margin: 0;
+}
+
+/* Container and existing styles */
+body, h1, h2, h3, p, ul, li, input, textarea, button, form {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #FFF8E7; /* Warm beige tone */
+    color: #333; /* Neutral text color */
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* Container */
+.container {
+    display: flex;
+    max-width: 1200px;
+    width: 100%;
+}
+
+/* Left Column */
+.left-column {
+    width: 33%;
+    padding: 20px;
+    background-color: #FDEBD0; /* Light orange tone */
+    border-right: 2px solid #E67E22;
+}
+
+.left-column h1 {
+    color: #D35400;
+    margin-bottom: 20px;
+}
+
+.form-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FAE5D3;
+    border: 1px solid #E67E22;
+    border-radius: 5px;
+}
+
+.form-section h2 {
+    margin-bottom: 15px;
+    color: #E67E22;
+}
+
+input, button {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+button {
+    background-color: #D35400;
+    color: white;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #E67E22;
+}
+
+/* Right Column */
+.right-column {
+    width: 67%;
+    padding: 20px;
+}
+
+.right-column h2 {
+    color: #D35400;
+    margin-bottom: 20px;
+}
+
+/* Pizza Grid */
+.pizza-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.pizza-card {
+    background-color: #FAE5D3;
+    border: 1px solid #E67E22;
+    border-radius: 5px;
+    padding: 15px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.pizza-card h3 {
+    color: #E67E22;
+    margin-bottom: 10px;
+}
+
+.pizza-card p {
+    margin-bottom: 10px;
+}
+
+.pizza-card .price {
+    font-weight: bold;
+    color: #D35400;
+}
+
+.pizza-card img {
+    max-width: 100%;
+    height: 150px; /* Fixed height for uniform size */
+    object-fit: cover; /* Ensures images fill the space consistently */
+    border-radius: 5px;
+    margin-bottom: 10px;
+}
+
+/* Add Button */
+.add-button-form {
+    margin-top: auto; /* Ensures button is always at the bottom */
+}
+
+/* Admin Pizza Images */
+.admin-pizza-img {
+    max-width: 100px;
+    height: auto;
+    margin-top: 10px;
+    border-radius: 5px;
+}
+
+
+/* Admin Panel Styling */
+.admin-title {
+    color: #D35400;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #D35400;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.back-link:hover {
+    text-decoration: underline;
+}
+
+/* Left Column: Add New Pizza */
+.left-column {
+    width: 33%;
+    padding: 20px;
+    background-color: #FDEBD0; /* Light orange tone */
+    border-right: 2px solid #E67E22;
+}
+
+.admin-form {
+    padding: 20px;
+    background-color: #FAE5D3;
+    border: 1px solid #E67E22;
+    border-radius: 5px;
+}
+
+.admin-form h2 {
+    color: #E67E22;
+    margin-bottom: 15px;
+}
+
+.admin-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #D35400;
+}
+
+.admin-form input, .admin-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+/* Right Column: Manage Existing Pizzas */
+.right-column {
+    width: 67%;
+    padding: 20px;
+}
+
+.manage-title {
+    color: #D35400;
+    margin-bottom: 20px;
+}
+
+.pizza-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.pizza-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #FDEBD0;
+    border: 1px solid #E67E22;
+    border-radius: 5px;
+}
+
+.pizza-form label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #D35400;
+}
+
+.pizza-form input, .pizza-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+}
+
+.pizza-form .button-group {
+    display: flex;
+    gap: 10px;
+}
+
+.pizza-form button {
+    flex: 1;
+    background-color: #D35400;
+    color: white;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.pizza-form button:hover {
+    background-color: #E67E22;
+}
+
+
+/* Logout Button */
+.logout-button {
+    background-color: #E74C3C; /* Red tone */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+.logout-button:hover {
+    background-color: #C0392B; /* Darker red on hover */
+}
+
+/* Manage Pizzas Button */
+.manage-pizzas-button {
+    display: block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #3498DB; /* Blue tone */
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 1em;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.manage-pizzas-button:hover {
+    background-color: #2980B9; /* Darker blue on hover */
+}
+
+/* Cart Button Styles */
+.cart-button, .logout-button {
+    display: block;
+    width: 100%;
+    padding: 12px 20px;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    text-align: center;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.cart-button {
+    background-color: #4CAF50;  /* Green */
+}
+
+.cart-button:hover {
+    background-color: #45a049;
+}
+
+.logout-button {
+    background-color: #E74C3C;  /* Red */
+}
+
+.logout-button:hover {
+    background-color: #C0392B;
+}
+
+/* Cart Page Styles */
+.cart-item {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    padding: 15px;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+}
+
+.cart-item img {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-right: 20px;
+}
+
+.cart-item h3 {
+    margin: 0 0 10px 0;
+    color: #333;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin: 0 10px;
+}
+
+.cart-total {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #ff4444;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #cc0000;
+}
+
+/* Cart Specific Styles */
+.cart-item-content {
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.cart-item-details {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.quantity-control {
+    margin: 15px 0;
+}
+
+.quantity-control label {
+    margin-right: 10px;
+}
+
+.quantity-input {
+    width: 60px;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.cart-actions {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.continue-shopping {
+    background-color: #4CAF50 !important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.checkout-button {
+    background-color: #2196F3 !important;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+}
+
+.empty-cart {
+    text-align: center;
+    padding: 30px;
+}
+
+.empty-cart p {
+    margin-bottom: 20px;
+    color: #666;
+    font-size: 1.2em;
+}
+
+.cart-total {
+    background-color: #f8f9fa;
+    padding: 20px;
+    border-radius: 4px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: 1px solid #ddd;
+}
+
+.delete-button {
+    background-color: #dc3545 !important;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delete-button:hover {
+    background-color: #c82333 !important;
+}
+
+.continue-shopping:hover {
+    background-color: #45a049 !important;
+}
+
+.checkout-button:hover {
+    background-color: #0d47a1 !important;
+}
+
+/* Button Styles */
+.login-button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    margin: 10px 0;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #45a049;
+}
+
+/* User Info Styles */
+.user-info {
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin: 15px 0;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.welcome-text {
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.last-order, .member-specials {
+    margin: 20px 0;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.last-order h3, .member-specials h3 {
+    color: #e65100;
+    font-size: 16px;
+    margin-bottom: 10px;
+}
+
+.last-order ul, .member-specials ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.last-order li, .member-specials li {
+    margin: 8px 0;
+    font-size: 14px;
+    color: #333;
+}
+
+.order-status {
+    color: #4CAF50;
+    font-size: 13px;
+    margin-top: 10px;
+}
+
+.promo-text {
+    color: #e65100;
+    font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+/* Registration Page Styles */
+.registration-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.registration-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    padding: 30px;
+}
+
+.benefits-section {
+    background-color: #f8f9fa;
+    padding: 25px;
+    border-radius: 8px;
+    border-left: 4px solid #e65100;
+}
+
+.benefits-section h3 {
+    color: #e65100;
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.benefit-item {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: white;
+    border-radius: 6px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    transition: transform 0.2s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-2px);
+}
+
+.benefit-item h4 {
+    color: #2c3e50;
+    margin-bottom: 8px;
+    font-size: 1.1em;
+}
+
+.benefit-item p {
+    color: #666;
+    font-size: 0.95em;
+    margin: 0;
+}
+
+.register-button {
+    background-color: #e65100;
+    color: white;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    width: 100%;
+    margin: 20px 0;
+    transition: background-color 0.3s;
+}
+
+.register-button:hover {
+    background-color: #d84315;
+}
+
+.login-link {
+    text-align: center;
+    margin-top: 15px;
+    color: #666;
+}
+
+.login-link a {
+    color: #e65100;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}

